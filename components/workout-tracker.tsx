@@ -39,12 +39,12 @@ export default function WorkoutTracker() {
       <Card className="p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="flex flex-col space-y-4">
-            <h2 className="text-lg font-semibold">Select Date</h2>
+            <h2 className="text-lg font-semibold mx-auto">Select Date</h2>
             <Calendar
               mode="single"
               selected={date}
               onSelect={(newDate) => newDate && setDate(newDate)}
-              className="rounded-md border shadow"
+              className="rounded-md border shadow mx-auto"
             />
             <WorkoutDisplay
               workouts={workouts}
@@ -54,7 +54,7 @@ export default function WorkoutTracker() {
           </div>
 
           <div className="flex flex-col space-y-4">
-            <h2 className="text-lg font-semibold">Log Workout</h2>
+            <h2 className="text-lg font-semibold mx-auto">Log Workout</h2>
             <WorkoutForm
   selectedDate={date}
   onWorkoutAdded={(newWorkout) =>
