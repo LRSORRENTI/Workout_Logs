@@ -71,14 +71,14 @@ export function WorkoutDisplay({
       <Button
         onClick={() => setIsVisible(!isVisible)}
         variant="outline"
-        className="w-full"
+        className="w-[17.5rem] mx-auto flex"
       >
         <Eye className="mr-2 h-4 w-4" />
         {isVisible ? "Hide" : "View"} Workouts
       </Button>
 
       {isVisible && (
-        <Card className="p-6">
+        <Card className="p-6 w-[17.5rem] flex mx-auto flex-col">
           <h2 className="text-xl font-bold mb-4">
             Workouts for {format(selectedDate, "MMMM d, yyyy")}
           </h2>
