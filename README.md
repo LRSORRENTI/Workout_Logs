@@ -38,6 +38,7 @@ A minimalist and user-friendly workout tracker application built with Next.js an
 - **next-themes**: A plugin to help manage themes in Next.js applications.
 - **Date-fns**: A modern JavaScript date utility library for parsing, formatting, and manipulating dates.
 - **Class Variance Authority (CVA)**: For managing complex styling with variants in React components.
+- **SQLite**: A lightweight, file-based database used to store workout logs.
 
 ## Getting Started
 
