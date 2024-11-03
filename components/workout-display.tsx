@@ -80,7 +80,7 @@ export function WorkoutDisplay({
       {isVisible && (
         <Card className="p-6 w-[17.5rem] flex mx-auto flex-col">
           <h2 className="text-xl font-bold mb-4">
-            Workouts for {format(selectedDate, "MMMM d, yyyy")}
+             {format(selectedDate, "MMMM d, yyyy")}
           </h2>
 
           {Object.keys(groupedWorkouts).length === 0 ? (
