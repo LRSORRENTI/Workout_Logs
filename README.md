@@ -1,4 +1,4 @@
-# Workout Tracker App
+# Workout Logs App
 
 A minimalist and user-friendly workout tracker application built with Next.js and styled using shadcn UI components. This app allows users to log their daily workouts, including both cardio and strength training exercises, and track their progress over time.
 
