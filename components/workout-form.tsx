@@ -127,7 +127,7 @@ export function WorkoutForm({
           id="exercise"
           value={exerciseName}
           onChange={(e) => setExerciseName(e.target.value)}
-          placeholder="e.g., Running"
+          placeholder="e.g., Barbell Curl"
         />
       </div>
 
