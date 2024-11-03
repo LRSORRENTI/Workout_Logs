@@ -21,15 +21,27 @@ db.run(sql`
   )
 `);
 
-// Check if 'duration' column exists
-const columnInfo = sqlite
+// Define the structure of the column info returned by PRAGMA
+interface ColumnInfo {
+  cid: number;
+  name: string;
+  type: string;
+  notnull: number;
+  dflt_value: any;
+  pk: number;
+}
+
+// Fetch column information from the 'workouts' table
+const columnInfo: any = sqlite
   .prepare("PRAGMA table_info(workouts);")
   .all();
 
+// Check if 'duration' column exists
 const durationColumnExists = columnInfo.some(
-  (column) => column.name === "duration"
+  (column: any) => column.name === "duration"
 );
 
 if (!durationColumnExists) {
+  // Add the 'duration' column to the 'workouts' table
   db.run(sql`ALTER TABLE workouts ADD COLUMN duration INTEGER;`);
 }
