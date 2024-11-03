@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "../hooks/use-toast"; // Adjusted import path
 import { format } from "date-fns";
 import { Dumbbell } from "lucide-react";
 import { WorkoutTypeSelect } from "./workout-type-select";
@@ -27,16 +27,17 @@ export function WorkoutForm({
   const [setNumber, setSetNumber] = useState("");
   const [reps, setReps] = useState("");
   const [duration, setDuration] = useState("");
-  const { toast } = useToast();
+  const { toast } = useToast(); // Destructure toast from useToast
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Validation checks
     if (!selectedDate || !workoutType || !exerciseName) {
       toast({
         title: "Error",
         description: "Please fill in all required fields",
-        variant: "destructive",
+        variant: "destructive", // Use 'destructive' variant for errors
       });
       return;
     }
@@ -87,17 +88,18 @@ export function WorkoutForm({
         toast({
           title: "Success",
           description: "Workout saved successfully!",
+          variant: "success", // Use 'success' variant for success messages
         });
-      
-        // Reset form
+
+        // Reset form fields
         setWorkoutType("");
         setExerciseName("");
         setWeight("");
         setSetNumber("");
         setReps("");
         setDuration("");
-      
-        // Add the new workout to the list in the parent component
+
+        // Update parent component with the new workout
         onWorkoutAdded(result.data);
       } else {
         throw new Error(result.error || "Failed to save workout");

@@ -1,12 +1,14 @@
 // components/workout-display.tsx
 
+"use client";
+
 import { useState } from "react";
 import { format } from "date-fns";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Eye, Trash } from "lucide-react";
 import type { Workout } from "@/lib/db/schema";
-import { toast } from "@/hooks/use-toast";
+import { useToast } from "../hooks/use-toast"; // Adjusted import path
 
 interface WorkoutDisplayProps {
   workouts: Workout[];
@@ -20,6 +22,7 @@ export function WorkoutDisplay({
   setWorkouts,
 }: WorkoutDisplayProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const { toast } = useToast(); // Destructure toast from useToast
 
   // Group workouts by type and exercise
   const groupedWorkouts = workouts.reduce((acc, workout) => {
@@ -49,8 +52,9 @@ export function WorkoutDisplay({
       );
 
       toast({
-        title: "Success",
+        title: "Deleted",
         description: "Workout deleted successfully!",
+        variant: "destructive", // Use 'destructive' variant for deletion
       });
     } catch (error) {
       console.error("Error deleting workout:", error);
